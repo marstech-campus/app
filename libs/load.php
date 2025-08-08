@@ -6,6 +6,15 @@ function load_template($name){
     include $_SERVER['DOCUMENT_ROOT']."/marstech/app/_templates/$name.php";
 }
 
+//2
+function validate_credentials($username, $password){
+    if($username == "ramseen@marstech.lk" and $password == "password"){
+        return true;
+    }else{
+        return false;
+    }
+}
+
 ?>
 
 
