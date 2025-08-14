@@ -12,6 +12,7 @@ include 'libs/load.php';
 </head>
 
 <body>
+
 <style>
     html,
     body {
@@ -27,10 +28,32 @@ include 'libs/load.php';
         z-index: 2;
     }
 
+    /* 3  username and phone added*/
+    .form-signin input[name="username"] {
+        margin-bottom: -1px;
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+
+
+    }
+
+    .form-signin input[name="phone"] {
+        margin-bottom: -1px;
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+
+    }
+
     .form-signin input[type="email"] {
         margin-bottom: -1px;
         border-bottom-right-radius: 0;
         border-bottom-left-radius: 0;
+        /* 3 */
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+
     }
 
     .form-signin input[type="password"] {
@@ -39,8 +62,6 @@ include 'libs/load.php';
         border-top-right-radius: 0;
     }
 </style>
-
-
     <?php  load_template('_theme');  ?>
     <header data-bs-theme="dark">
         <div class="collapse text-bg-dark" id="navbarHeader">
@@ -51,7 +72,7 @@ include 'libs/load.php';
     <main>
 
 
-        <?php load_template('_login');  ?>
+        <?php load_template('_signup');  ?>
     </main>
 
 
