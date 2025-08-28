@@ -1,9 +1,45 @@
+<?php
+
+if(isset($_POST['username']) and isset($_POST['password']) and isset($_POST['email']) and isset($_POST['phone']) ){
+    
+
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    $email = $_POST['email'];
+    $phone = $_POST['phone'];
+    $result= signup($username, $password, $email, $phone);
+    $signup = true;
+
+
+    }
+
+         if($signup){ 
+                if($result){
+                ?>
+<main class="container">
+    <div class="bg-body-tertiary p-5 rounded mt-3">
+        <h1>Signup Success</h1>
+        <p class="lead">Now you can login from <a href="../app/login.php">Login Here</a>.</p>
+    </div>
+</main>
+<?php }else{ ?>
+<main class="container">
+    <div class="bg-body-tertiary p-5 rounded mt-3">
+        <h1>Signup Failed</h1>
+        <p class="lead">Something went wrong <a href="./login.php"></a>.</p>
+    </div>
+</main>
+<?php } ?>
+
+<?php }else{
+         ?>
+
 <main class="form-signin w-100 m-auto">
     <!-- 3 action -->
-    <form method="POST" action="test.php"> 
+    <form method="POST" action="signup.php">
         <img class="mb-4" src="https://marstech.lk/wp-content/uploads/2025/03/Mars-Logo.png" alt="" width="300"
             height="150">
-            <!-- 3 signup -->
+        <!-- 3 signup -->
         <h1 class="h3 mb-3 fw-normal">Signup here</h1>
 
         <!-- 3 username and phone added -->
@@ -24,3 +60,4 @@
         <p class="mt-5 mb-3 text-body-secondary">© 2017–2025</p>
     </form>
 </main>
+<?php } ?>
