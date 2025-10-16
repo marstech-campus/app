@@ -1,5 +1,5 @@
 <?php
-
+$signup = false;
 if(isset($_POST['username']) and isset($_POST['password']) and isset($_POST['email']) and isset($_POST['phone']) ){
     
 
@@ -7,26 +7,26 @@ if(isset($_POST['username']) and isset($_POST['password']) and isset($_POST['ema
     $password = $_POST['password'];
     $email = $_POST['email'];
     $phone = $_POST['phone'];
-    $result= signup($username, $password, $email, $phone);
+    $error = signup($username, $password, $email, $phone);
     $signup = true;
 
 
     }
 
          if($signup){ 
-                if($result){
+                if(!$error){
                 ?>
 <main class="container">
     <div class="bg-body-tertiary p-5 rounded mt-3">
         <h1>Signup Success</h1>
-        <p class="lead">Now you can login from <a href="../app/login.php">Login Here</a>.</p>
+        <p class="lead"> <a href="../app/login.php">Now You Can Login Here</a>.</p>
     </div>
 </main>
 <?php }else{ ?>
 <main class="container">
     <div class="bg-body-tertiary p-5 rounded mt-3">
         <h1>Signup Failed</h1>
-        <p class="lead">Something went wrong <a href="./login.php"></a>.</p>
+        <p class="lead">Something went wrong <?php echo $error ?> <a href="../app/signup.php">Signup Again</a>.</p>
     </div>
 </main>
 <?php } ?>
