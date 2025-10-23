@@ -20,11 +20,24 @@
 
         // echo __dir__;
 
-    if(signup("marstech3", "password2", "marstech3@gmail.com", "888888882")){
-        print("Signup Success");
-    }else{
-        print("Signup Failed");
-    }
+    // if(signup("marstech3", "password2", "marstech3@gmail.com", "888888882")){
+    //     print("Signup Success");
+    // }else{
+    //     print("Signup Failed");
+    // }
+
+    $conn = Database::getConnction();
+    $conn = Database::getConnction();
+    $conn = Database::getConnction();
+    $conn = Database::getConnction();
+    $conn = Database::getConnction();
+    $conn = Database::getConnction();
+    $conn = Database::getConnction();
+    $conn = Database::getConnction();
+    $conn = Database::getConnction();
+    $conn = Database::getConnction();
+    $conn = Database::getConnction();
+    $conn = Database::getConnction();
 
     ?>
 </pre>
