@@ -2,27 +2,44 @@
 
 //2.1
 
-$username = $_POST['email'];
-$password = $_POST['password'];
+// $username = $_POST['email'];
+// $password = $_POST['password'];
 //echo $username;
 //-------check th code before at bottom----- 2
 
-$result= validate_credentials($username, $password);
+// $result= validate_credentials($username, $password);
 
-if($result){
+// if($result){
 ?>
-<main class="container">
+<!-- <main class="container">
     <div class="bg-body-tertiary p-5 rounded mt-3">
         <h1>Login Success</h1>
         <p class="lead">This example is a quick exercise to login with html form.</p> 
     </div>
-</main>
+</main> -->
 
 <?php
-}else{
+// }else{
 
 
 // end of 2.1
+?>
+
+<?php
+// include_once "libs/load.php";
+// if ($_SERVER["REQUEST_METHOD"] == "POST") {
+//     $email = $_POST['email'];
+//     $password = $_POST['password'];
+    
+//     $query = "SELECT * FROM auth WHERE email = '$email' AND password = '$password'";
+//     $result = $conn->query($query);
+    
+//     if ($result->num_rows > 0) {
+//         echo "Login successful!";
+//     } else {
+//         echo "Login failed!";
+//     }
+// }
 ?>
 
 <main class="form-signin w-100 m-auto">
@@ -43,7 +60,7 @@ if($result){
 </main>
 
 <?php
-}
+//}
 //2
 
 // $username = $_POST['email'];

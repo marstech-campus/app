@@ -4,7 +4,11 @@
 // $pass = isset($_GET['pass']) ? $_GET['pass'] : 'password123'; // ternary operator   
 // echo(md5($pass));
 
-$str = "password16363636363636363636363636363636363636363636363636363 bnsdjhcvjhvsdcvjsvcjhvsdjhcvjh636";
+$str = <<<End
+password1636363636363636363636363
+6363636363636363636363636363 
+bnsdjhcvjhvsdcvjsvcjhvsdjhcvjh636
+End;
 
 echo("Data Length: " . strlen($str) . "\n");
 

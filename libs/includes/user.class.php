@@ -29,6 +29,34 @@ VALUES (NULL, '$Username', '$Password', '$email', '$phone', '0', '0')";
 
 }
 
+public static function login($Username, $Password)
+    {
+        $Password = md5(strrev(md5($Password)));
+        $query = "SELECT * FROM auth WHERE username = 'root' ";
+        $conn = Database::getConnction();
+        print("Executing query: $query.\n");
+        $result = $conn->query($query);
+        print("Query executed. Number of rows: " . $result->num_rows . "\n");
+        if ($result->num_rows == 1) {
+
+            $row = $result->fetch_assoc();
+            print_r($row['password'] . "\n");
+            print($Password . "\n");
+            if ($row['password'] == $Password) {
+                print("Password match.\n");
+                return true;
+            } else {
+                print("Password does not match.\n");
+                return false;
+            }
+        }else {
+            return false;
+            echo "no query result";
+
+        }
+
+    }
+
 public function __construct($Username){
     $this->conn = Database::getConnction();
     $this->conn->query();
