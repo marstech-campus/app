@@ -23,14 +23,14 @@ class Database
                 echo "Connection failed: " . $connection->connect_error;
 
             } else {
-                echo "Connected successfully...... assing new connection";
+                //echo "Connected successfully...... assing new connection";
                 Database::$conn = $connection;
                 return Database::$conn;
             }
 
         }
         else {
-            echo "Using existing connection";
+            //echo "Using existing connection";
             return Database::$conn;
         }
     }
