@@ -2,7 +2,7 @@
 //include './libs/load.php';
 include 'libs/load.php';
 
-$user = "root";
+$user = "suser2";
 $pass = "123";
 $result = null;
 
@@ -12,13 +12,14 @@ if(isset($_GET['logout'])){
 }
 
 if(Session::get('is_loggedin')){
-    $userdata = Session::get('session_user');
+    $userdata = Session::get('session_user'); 
+   // print_r($userdata); //$result
     print("Wlecome Back, $userdata[username]");   /////////////////////////changed //////////////
     $result = $userdata;
 
 }else {
     print("No Session Found, trying to login now.\n");
-    $result = User::login($user, $pass);
+    $result = User::login($user, $pass);  //$row
     //print_r($result);                          /////////////////////////changed //////////////
 
     if ($result) {

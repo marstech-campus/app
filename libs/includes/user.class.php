@@ -3,10 +3,16 @@
 
 class User {
     private $conn;
+   // private static $salt = "auths@lt#123hdvdjvjk"; // Security through obscurity
     public static function singup($Username, $Password, $email, $phone)
 {
 
-    $Password = md5(strrev(md5($Password))); // Security through obscurity
+   // $Password = md5(strrev(md5($Password)). User::$salt); // Security through obscurity
+        $options = [
+    // Increase the bcrypt cost from 12 to 13.
+    'cost' => 9,
+    ];
+    $Password = password_hash($Password, PASSWORD_BCRYPT, $options);
 
     $conn = Database::getConnction();
 
@@ -31,7 +37,7 @@ VALUES (NULL, '$Username', '$Password', '$email', '$phone', '0', '0')";
 
 public static function login($Username, $Password)
     {
-        $Password = md5(strrev(md5($Password)));
+        //$Password = md5(strrev(md5($Password)). User::$salt); // Security through obscurity
         $query = "SELECT * FROM auth WHERE username = '$Username' ";
         $conn = Database::getConnction();
         //print("Executing query: $query.\n");
@@ -41,9 +47,9 @@ public static function login($Username, $Password)
         if ($result->num_rows == 1) {
 
             $row = $result->fetch_assoc();
-            //print_r($row['password'] . "\n");
+            //print_r($row );
             //print($Password . "\n");
-            if ($row['password'] == $Password) {
+            if (password_verify($Password, $row['password'])) {
                 //print("Password match.\n");
                 return $row;        /////////////////////////changed //////////////-------------------------
             } else {
